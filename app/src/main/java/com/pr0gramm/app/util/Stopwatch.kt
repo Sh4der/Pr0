@@ -3,8 +3,8 @@ package com.pr0gramm.app.util
 import java.text.DecimalFormat
 import java.util.concurrent.TimeUnit
 
-class Stopwatch {
-    private val startTime = System.nanoTime()
+inline class Stopwatch(private val startTime: Long = System.nanoTime()) {
+
 
     private val nanos get() = System.nanoTime() - startTime
 
@@ -47,6 +47,5 @@ class Stopwatch {
     companion object {
         private val format = DecimalFormat("#.0000")
 
-        fun createStarted() = Stopwatch()
     }
 }
